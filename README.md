@@ -1,2 +1,5 @@
 # modulo2-desafio4
-Repositorio preparado para entrega de proyecto 4 en desafio latam
+
+Repositorio para entrega de Desafio Final del Modulo 2 de Desarrollo Full Stack en Desafio Latam
+
+
