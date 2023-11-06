@@ -1,0 +1,397 @@
+$small: "576px";
+$large: "992px";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-areas: 
+    "header"
+    "aside"
+    "main"
+    "footer"
+    ;
+    grid-template-rows: 100px 100px 1fr 100px;
+}
+
+header{
+    grid-area: header;
+    background-color: #11270b;
+    color: white;
+    align-items: center;
+
+    nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        height: 100%;
+        
+        .brand{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+
+            h1{
+                font-size: 25px;
+                font-weight: 800;
+            }
+            
+            figure{
+                width: 60px;
+                font-size: 30px;
+                img{
+                    width: 100%;
+                    object-fit: contain;
+                    border-radius: 50%;
+                }
+            }
+        }
+
+        .icon{
+            font-size: 30px;
+        }
+
+        .menu{
+            display: none;
+        }
+    }
+}
+
+aside{
+    grid-area: aside;
+    display: flex;
+    flex-direction: column;
+    background-color:#71b340;
+    color: white;
+
+    p{
+        text-align: center;
+        padding: 10px;
+    }
+
+    .price-dropdown{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+    }
+
+    select{
+        display: flex;
+        height: 40px;
+        width: 200px;
+        text-transform: capitalize;
+        padding-left: 10px;
+    }
+
+}
+
+main{
+    grid-area: main;
+    background-color: white;
+    height: auto;
+    padding: 20px;
+
+    .cards{
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        height: 250px;
+        flex-wrap: nowrap;
+        width: 100%;
+        padding: 20px;
+        
+
+        .card-header{
+            height: 300px;
+            filter: grayscale(100%);
+
+            img{
+                object-fit: contain;
+                width: 100%;
+                border: solid 1px gray;
+            }
+
+            &:hover{
+                scale: (105%);
+                transition: all 3s ease-in;
+                overflow: hidden;
+                filter: initial;
+                rotate: (360deg);
+            }
+            
+        }
+
+        .card-body{
+            padding: 15px;
+            text-align: center;
+            color: gray;
+            opacity: 90%;
+        }
+
+        .card-footer{
+            display: flex;
+            justify-content: center;
+            height: 50px;
+            width: 100%;
+            color: #134074;
+
+            button{
+                background-color: #598b2c;
+                width: 100px;
+                color: white;
+
+            }                       
+            
+            &:hover {
+            background-color: gray;
+            transition: background-color 0.5s ease-in;
+            }
+        }
+        
+    }
+    
+    .pagination{
+        display: flex;
+        justify-content: center;
+        gap: 5px;
+        height: 30px;
+        padding-top: 10px;
+    }
+}
+
+footer{
+    grid-area: footer;
+    background-color: #669D31;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: white;
+
+    .footer-icon{
+        font-size: 30px;
+        gap: 5px;
+    }
+    
+}
+
+@media (min-width: $small){
+    .dashboard{
+        grid-template-areas: 
+            "header header header header header"
+            "aside main main main main"
+            "footer footer footer footer footer"
+        ;
+        
+            grid-template-rows: 100px 1fr 100px;
+            grid-template-columns: 280px;
+
+        header{
+            nav{
+                color: white;
+                height: 100%;
+
+                .brand{
+                    figure{
+                        width: 40px;
+                    }
+                }
+    
+                .icon{
+                    display: none;
+                }
+
+                .menu{
+                    display: flex;
+                    list-style: none;
+                    gap: 15px;
+                    text-transform: capitalize;
+
+                }
+            }
+        }
+
+        aside{
+            height: auto;
+
+            p{
+                text-align: center;
+            }
+
+            select{
+                height: 40px;
+                width: 150px;
+                padding-left: 10px;
+            }
+        }
+
+        main{
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            height: 100vh;
+
+            .cards{
+                display: flex;
+                flex-direction: column;
+                border: solid 1px gray;
+                background-color: white;
+                height: 450px;
+                flex-wrap: nowrap;
+                width: 300px;
+                padding: 20px;
+        
+                .card-header{
+                    height: 300px;
+        
+                    img{
+                        object-fit: contain;
+                        width: 100%;
+                    }
+                }
+        
+                .card-body{
+                    padding: 15px;
+                    text-align: center;
+                    color: gray;
+                    opacity: 90%;
+                }
+        
+                .card-footer{
+                    display: flex;
+                    justify-content: center;
+                    height: 50px;
+                    width: 100%;
+                    color: #134074;
+        
+                    button{
+                        background-color: #598b2c;
+                        width: 100px;
+                        color: white;
+                    }                
+                }
+            }
+
+            .pagination{
+                display: none;
+            }
+        }
+
+
+    }
+}
+
+@media (min-width: $large){
+    .dashboard{
+        grid-template-areas: 
+            "header aside aside aside aside"
+            "header main main main main"
+            "footer main main main main"
+        ;
+        
+            grid-template-rows: 100px 1fr 100px;
+            grid-template-columns: 350px;
+
+        header{
+            height: 100vh;
+            font-size: larger;
+            padding-top: 25px;
+
+            nav{
+                flex-direction: column;
+                justify-content: center;
+                gap: 30px;
+                height: 250px;
+                font-size: larger;
+                
+                .brand{
+                    figure{
+                        width: 40px;
+                    }
+                }
+    
+                .icon{
+                    display: none;
+                }
+
+                .menu{
+                    flex-direction: column;
+                    text-align: center;
+                    text-transform: capitalize;
+                }
+            }
+        }
+
+        aside{
+            height: 100px;
+            justify-content: center;
+            font-size: larger;
+            
+            select{
+                height: 40px;
+                width: 90%;
+                padding-left: 10px;
+                font-size: larger;
+            }
+        }
+
+        main{
+
+            .cards{
+                display: flex;
+                flex-direction: column;
+                border: solid 1px gray;
+                background-color: white;
+                height: 650px;
+                flex-wrap: nowrap;
+                width: 500px;
+                padding: 20px;
+        
+                .card-header{
+                    height: 450px;
+        
+                    img{
+                        object-fit: contain;
+                        width: 100%;
+                    }
+                }
+        
+                .card-body{
+                    padding: 15px;
+                    text-align: center;
+                    color: gray;
+                    opacity: 90%;
+                    font-size: larger;
+                }
+        
+                .card-footer{
+                    display: flex;
+                    justify-content: center;
+                    height: 75px;
+                    width: 100%;
+                    color: #134074;
+                    font-size: larger;
+        
+                    button{
+                        background-color: #598b2c;
+                        width: 150px;
+                        color: white;
+                    }                
+                }
+            }
+
+            .pagination{
+                display: none;
+            }
+        }
+        
+    }
+}

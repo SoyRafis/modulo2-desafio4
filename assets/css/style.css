@@ -1,0 +1,315 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-areas: "header" "aside" "main" "footer";
+  grid-template-rows: 100px 100px 1fr 100px;
+}
+
+header {
+  grid-area: header;
+  background-color: #11270b;
+  color: white;
+  align-items: center;
+}
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  height: 100%;
+}
+header nav .brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+header nav .brand h1 {
+  font-size: 25px;
+  font-weight: 800;
+}
+header nav .brand figure {
+  width: 60px;
+  font-size: 30px;
+}
+header nav .brand figure img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  border-radius: 50%;
+}
+header nav .icon {
+  font-size: 30px;
+}
+header nav .menu {
+  display: none;
+}
+
+aside {
+  grid-area: aside;
+  display: flex;
+  flex-direction: column;
+  background-color: #71b340;
+  color: white;
+}
+aside p {
+  text-align: center;
+  padding: 10px;
+}
+aside .price-dropdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+aside select {
+  display: flex;
+  height: 40px;
+  width: 200px;
+  text-transform: capitalize;
+  padding-left: 10px;
+}
+
+main {
+  grid-area: main;
+  background-color: white;
+  height: auto;
+  padding: 20px;
+}
+main .cards {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  height: 250px;
+  flex-wrap: nowrap;
+  width: 100%;
+  padding: 20px;
+}
+main .cards .card-header {
+  height: 300px;
+  filter: grayscale(100%);
+}
+main .cards .card-header img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100%;
+  border: solid 1px gray;
+}
+main .cards .card-header:hover {
+  scale: 105%;
+  transition: all 3s ease-in;
+  overflow: hidden;
+  filter: initial;
+  rotate: 360deg;
+}
+main .cards .card-body {
+  padding: 15px;
+  text-align: center;
+  color: gray;
+  opacity: 90%;
+}
+main .cards .card-footer {
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  width: 100%;
+  color: #134074;
+}
+main .cards .card-footer button {
+  background-color: #598b2c;
+  width: 100px;
+  color: white;
+}
+main .cards .card-footer:hover {
+  background-color: gray;
+  transition: background-color 0.5s ease-in;
+}
+main .pagination {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  height: 30px;
+  padding-top: 10px;
+}
+
+footer {
+  grid-area: footer;
+  background-color: #669D31;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
+footer .footer-icon {
+  font-size: 30px;
+  gap: 5px;
+}
+
+@media (min-width: 576px) {
+  .dashboard {
+    grid-template-areas: "header header header header header" "aside main main main main" "footer footer footer footer footer";
+    grid-template-rows: 100px 1fr 100px;
+    grid-template-columns: 280px;
+  }
+  .dashboard header nav {
+    color: white;
+    height: 100%;
+  }
+  .dashboard header nav .brand figure {
+    width: 40px;
+  }
+  .dashboard header nav .icon {
+    display: none;
+  }
+  .dashboard header nav .menu {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+    text-transform: capitalize;
+  }
+  .dashboard aside {
+    height: auto;
+  }
+  .dashboard aside p {
+    text-align: center;
+  }
+  .dashboard aside select {
+    height: 40px;
+    width: 150px;
+    padding-left: 10px;
+  }
+  .dashboard main {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    height: 100vh;
+  }
+  .dashboard main .cards {
+    display: flex;
+    flex-direction: column;
+    border: solid 1px gray;
+    background-color: white;
+    height: 450px;
+    flex-wrap: nowrap;
+    width: 300px;
+    padding: 20px;
+  }
+  .dashboard main .cards .card-header {
+    height: 300px;
+  }
+  .dashboard main .cards .card-header img {
+    -o-object-fit: contain;
+       object-fit: contain;
+    width: 100%;
+  }
+  .dashboard main .cards .card-body {
+    padding: 15px;
+    text-align: center;
+    color: gray;
+    opacity: 90%;
+  }
+  .dashboard main .cards .card-footer {
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    width: 100%;
+    color: #134074;
+  }
+  .dashboard main .cards .card-footer button {
+    background-color: #598b2c;
+    width: 100px;
+    color: white;
+  }
+  .dashboard main .pagination {
+    display: none;
+  }
+}
+@media (min-width: 992px) {
+  .dashboard {
+    grid-template-areas: "header aside aside aside aside" "header main main main main" "footer main main main main";
+    grid-template-rows: 100px 1fr 100px;
+    grid-template-columns: 350px;
+  }
+  .dashboard header {
+    height: 100vh;
+    font-size: larger;
+    padding-top: 25px;
+  }
+  .dashboard header nav {
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    height: 250px;
+    font-size: larger;
+  }
+  .dashboard header nav .brand figure {
+    width: 40px;
+  }
+  .dashboard header nav .icon {
+    display: none;
+  }
+  .dashboard header nav .menu {
+    flex-direction: column;
+    text-align: center;
+    text-transform: capitalize;
+  }
+  .dashboard aside {
+    height: 100px;
+    justify-content: center;
+    font-size: larger;
+  }
+  .dashboard aside select {
+    height: 40px;
+    width: 90%;
+    padding-left: 10px;
+    font-size: larger;
+  }
+  .dashboard main .cards {
+    display: flex;
+    flex-direction: column;
+    border: solid 1px gray;
+    background-color: white;
+    height: 650px;
+    flex-wrap: nowrap;
+    width: 500px;
+    padding: 20px;
+  }
+  .dashboard main .cards .card-header {
+    height: 450px;
+  }
+  .dashboard main .cards .card-header img {
+    -o-object-fit: contain;
+       object-fit: contain;
+    width: 100%;
+  }
+  .dashboard main .cards .card-body {
+    padding: 15px;
+    text-align: center;
+    color: gray;
+    opacity: 90%;
+    font-size: larger;
+  }
+  .dashboard main .cards .card-footer {
+    display: flex;
+    justify-content: center;
+    height: 75px;
+    width: 100%;
+    color: #134074;
+    font-size: larger;
+  }
+  .dashboard main .cards .card-footer button {
+    background-color: #598b2c;
+    width: 150px;
+    color: white;
+  }
+  .dashboard main .pagination {
+    display: none;
+  }
+}/*# sourceMappingURL=style.css.map */
